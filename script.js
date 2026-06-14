@@ -1,6 +1,7 @@
-// create empty card array
-const cards = []
-// create players array with duplicates (2 times each player for a total of 16 cards)
+"use strict";
+
+const cards = [];
+
 const players = [
     {index: 0, img: "https://www.coleka.com/media/item/202005/28/italia-90-world-cup-diego-armando-maradona-argentina-128_vpd4j.webp"},
     {index: 1, img: "https://www.coleka.com/media/item/202203/05/italia-90-world-cup-roberto-baggio-italia-053.webp"},
@@ -18,86 +19,83 @@ const players = [
     {index: 13, img: "https://www.coleka.com/media/item/202005/28/italia-90-world-cup-marco-van-basten-nederland-417_hrk7w.webp"},
     {index: 14, img: "https://www.coleka.com/media/item/202112/24/italia-90-world-cup-enzo-francescoli-uruguay-379.webp"},
     {index: 15, img: "https://www.coleka.com/media/item/202112/24/italia-90-world-cup-vincenzo-scifo-belgique-belgie-338.webp"},
-
 ]
 
 const back = "https://www.coleka.com/media/item/202005/27/italia-90-world-cup-mascot-fifa-world-cup-italia-90-005_esy42.webp"
 
-// get the rows elements from the DOM
-rowsHTML = document.getElementsByClassName("row")
+const rowsHTML = document.getElementsByClassName("row")
 
-// randomize the cards array and create the cards elements in the DOM
-for (row of rowsHTML) {
-    for (i=0; i<4; i++) {
+let cardId = 0
+for (const row of rowsHTML) {
+    for (let i = 0; i < 4; i++) {
         const randomIndex = Math.floor(Math.random() * players.length)
         const randomPlayer = players[randomIndex]
         cards.push(randomPlayer)
         const card = document.createElement("img")
         card.className = "card"
-        card.id = randomPlayer.index
+        card.id = cardId++
+        card.dataset.pair = randomPlayer.index
         card.src = back
         row.appendChild(card)
         players.splice(randomIndex, 1)
     }
 }
 
-// get the cards elements from the DOM
-cardsHTML = document.getElementsByClassName("card")
+const cardsHTML = document.getElementsByClassName("card")
 
-// create empty array to store the guesses
 const guess = []
 let indexTemp
+let locked = false
 
-for(const card of cardsHTML) {
-    card.addEventListener("click", (e) => {
-        const index = parseInt(e.target.id)
-        if (guess.length === 0 && index !== indexTemp) {
-            const card = document.getElementById(index)
-            card.src = cards[index].img
-            guess.push(card.src)
-            indexTemp = index;
+function cardsAreEqual() {
+    return guess[0] === guess[1] && guess[0] !== undefined
+}
+
+function playerWins() {
+    for (const card of cardsHTML) {
+        if (card.src === back) {
+            return false
         }
-        else if (guess.length === 1 && index !== indexTemp) {
-            const card = document.getElementById(index)
-            card.src = cards[index].img
-            guess.push(card.src)
+    }
+    return true
+}
+
+for (const card of cardsHTML) {
+    card.addEventListener("click", (e) => {
+        if (locked) return
+        if (e.target.classList.contains("matched")) return
+
+        const currentCard = e.target
+        const index = parseInt(currentCard.id)
+
+        if (guess.length === 0 && index !== indexTemp) {
+            currentCard.src = cards[index].img
+            guess.push(currentCard.src)
+            indexTemp = index
+        } else if (guess.length === 1 && index !== indexTemp) {
+            currentCard.src = cards[index].img
+            guess.push(currentCard.src)
+
             if (cardsAreEqual()) {
+                currentCard.classList.add("matched")
+                document.getElementById(indexTemp).classList.add("matched")
                 guess.splice(0, 2)
-                indexTemp = undefined;
-            }
-            else {
+                indexTemp = undefined
+            } else {
+                locked = true
+                const firstCard = document.getElementById(indexTemp)
                 setTimeout(() => {
-                    const cardTemp = document.getElementById(indexTemp)
-                    cardTemp.src = back
-                    card.src = back
+                    firstCard.src = back
+                    currentCard.src = back
                     guess.splice(0, 2)
-                    indexTemp = undefined;
+                    indexTemp = undefined
+                    locked = false
                 }, 1000)
             }
         }
-        if(playerWins()){
+
+        if (playerWins()) {
             document.getElementById("wins").classList.remove("hidden")
         }
     })
-}
-
-// check if cards are equal
-cardsAreEqual = () => {
-    if(guess[0] === guess[1] && guess[0] !== undefined) {
-        return true
-    }
-    else {
-        return false
-    }
-}
-
-// check if player has won
-playerWins = () => {
-    let wins = true;
-    for(card of cardsHTML) {
-        if(card.src === back) {
-            wins = false
-        }
-    }
-    return wins
 }
