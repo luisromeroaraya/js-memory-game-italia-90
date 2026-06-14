@@ -29,12 +29,14 @@ Maradona, Baggio, Romário, Matthäus, Valderrama, Van Basten, Francescoli, Scif
 
 ### UI / UX
 - 3D CSS card flip using `preserve-3d` and `backface-visibility`
+- Italian flag colour palette (green title, red stats, white cards with sticker borders)
+- Sidebar layout on desktop — stats, controls, and player list in a sticky side panel; collapses to a top bar on mobile
 - Hover glow and click-press feedback on interactive cards
 - Dimmed matched cards with no reverse animation
 - Move counter and elapsed timer, starting on the first card click
 - Restart button and Play Again button to reshuffle without refreshing
 - Full keyboard support — cards are focusable with Enter/Space handlers
 - Falling confetti animation on win
-- Responsive layout — cards scale down on small screens via `vw` units
+- Fully responsive — cards, text, and spacing scale continuously via `clamp()` with no breakpoint jumps
 
 Images from [Coleka](https://www.coleka.com/fr/stikers-autocollants/stickers-panini/albums-de-foot-panini/italia-90-world-cup_r14144)

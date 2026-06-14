@@ -4,27 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Italia '90 Memory Game</title>
 </head>
 <body>
-    <!-- Title and stats -->
-    <header class="column">
-        <h1>Italia '90 Memory Game</h1>
-        <div class="stats">
-            <span>Moves: <span id="moves">0</span></span>
-            <span>Time: <span id="timer">00:00</span></span>
-            <button id="restart">Restart</button>
-        </div>
-    </header>
+    <!-- Sidebar with stats, controls, and player list -->
+    <div class="game-layout">
+        <aside class="sidebar">
+            <h1>Italia '90<br>Memory Game</h1>
+            <div class="stats">
+                <div class="stat-row">
+                    <span class="stat-label">Moves</span>
+                    <span class="stat-value" id="moves">0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Time</span>
+                    <span class="stat-value" id="timer">00:00</span>
+                </div>
+                <button id="restart">Restart</button>
+            </div>
+            <div class="player-list">
+                <h3>Players</h3>
+                <ul>
+                    <li>Maradona</li>
+                    <li>Baggio</li>
+                    <li>Romário</li>
+                    <li>Matthäus</li>
+                    <li>Valderrama</li>
+                    <li>Van Basten</li>
+                    <li>Francescoli</li>
+                    <li>Scifo</li>
+                </ul>
+            </div>
+        </aside>
 
-    <!-- 4 rows × 4 cards = 16-card grid, populated by script.js -->
-    <section class="column">
-        <div class="row"></div>
-        <div class="row"></div>
-        <div class="row"></div>
-        <div class="row"></div>
-    </section>
+        <!-- 4 rows × 4 cards = 16-card grid, populated by script.js -->
+        <main class="grid">
+            <section class="column">
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+            </section>
+        </main>
+    </div>
 
     <!-- Hidden win overlay, revealed when all pairs are matched -->
     <div id="wins" class="modal hidden">

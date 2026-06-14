@@ -16,6 +16,9 @@ Vanilla JS memory card game. No build tools, no frameworks, no tests.
 - Board setup wrapped in `initBoard()` — called on page load and on restart
 - Cards have `tabIndex`, `role="button"`, and keyboard handlers for Enter/Space
 - Confetti is generated dynamically with absolutely-positioned animated divs
+- Responsive sizing uses `clamp()` for continuous scaling (no breakpoint jumps)
+- Sidebar layout on desktop (`> 800px`), collapses to top bar on mobile
+- `:root` CSS custom properties for the Italian flag palette (`--green`, `--red`, etc.)
 
 ## Running
 
