@@ -19,6 +19,7 @@ Vanilla JS memory card game. No build tools, no frameworks, no tests.
 - Responsive sizing uses `clamp()` for continuous scaling (no breakpoint jumps)
 - Sidebar layout on desktop (`> 800px`), collapses to top bar on mobile
 - `:root` CSS custom properties for the Italian flag palette (`--green`, `--red`, etc.)
+- Player list hover preview uses a `::after` pseudo-element with `--img` custom property
 
 ## Running
 

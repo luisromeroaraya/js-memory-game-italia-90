@@ -185,6 +185,8 @@ function handleCardClick() {
                 if (allMatched()) {
                     stopTimer()
                     showConfetti()
+                    document.getElementById("win-moves").textContent = moves
+                    document.getElementById("win-time").textContent = formatTime(seconds)
                     winModal.classList.remove("hidden")
                 }
             }, 500)

@@ -29,14 +29,14 @@
             <div class="player-list">
                 <h3>Players</h3>
                 <ul>
-                    <li>Maradona</li>
-                    <li>Baggio</li>
-                    <li>Romário</li>
-                    <li>Matthäus</li>
-                    <li>Valderrama</li>
-                    <li>Van Basten</li>
-                    <li>Francescoli</li>
-                    <li>Scifo</li>
+                    <li style="--img: url('https://www.coleka.com/media/item/202005/28/italia-90-world-cup-diego-armando-maradona-argentina-128_vpd4j.webp')">Maradona</li>
+                    <li style="--img: url('https://www.coleka.com/media/item/202203/05/italia-90-world-cup-roberto-baggio-italia-053.webp')">Baggio</li>
+                    <li style="--img: url('https://www.coleka.com/media/item/202005/27/italia-90-world-cup-romario-brasil-208_rm4ux.webp')">Romário</li>
+                    <li style="--img: url('https://www.coleka.com/media/item/202005/28/italia-90-world-cup-lothar-matthaus-deutschland-brd-259_7amc5.webp')">Matthäus</li>
+                    <li style="--img: url('https://www.coleka.com/media/item/202203/05/italia-90-world-cup-carlos-alberto-valderrama-colombia-300.webp')">Valderrama</li>
+                    <li style="--img: url('https://www.coleka.com/media/item/202005/28/italia-90-world-cup-marco-van-basten-nederland-417_hrk7w.webp')">Van Basten</li>
+                    <li style="--img: url('https://www.coleka.com/media/item/202112/24/italia-90-world-cup-enzo-francescoli-uruguay-379.webp')">Francescoli</li>
+                    <li style="--img: url('https://www.coleka.com/media/item/202112/24/italia-90-world-cup-vincenzo-scifo-belgique-belgie-338.webp')">Scifo</li>
                 </ul>
             </div>
         </aside>
@@ -55,6 +55,10 @@
     <!-- Hidden win overlay, revealed when all pairs are matched -->
     <div id="wins" class="modal hidden">
         <h2>YOU WIN!</h2>
+        <div class="win-stats">
+            Moves: <span id="win-moves"></span> &middot;
+            Time: <span id="win-time"></span>
+        </div>
         <button id="play-again">Play Again</button>
     </div>
 
