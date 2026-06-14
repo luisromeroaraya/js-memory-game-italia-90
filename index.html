@@ -8,9 +8,14 @@
     <title>Italia '90 Memory Game</title>
 </head>
 <body>
-    <!-- Title -->
+    <!-- Title and stats -->
     <header class="column">
         <h1>Italia '90 Memory Game</h1>
+        <div class="stats">
+            <span>Moves: <span id="moves">0</span></span>
+            <span>Time: <span id="timer">00:00</span></span>
+            <button id="restart">Restart</button>
+        </div>
     </header>
 
     <!-- 4 rows × 4 cards = 16-card grid, populated by script.js -->
@@ -25,6 +30,9 @@
     <div id="wins" class="modal hidden">
         <h2>YOU WIN!</h2>
     </div>
+
+    <!-- Confetti container for win animation -->
+    <div id="confetti"></div>
 
     <script src="script.js"></script>
 </body>
