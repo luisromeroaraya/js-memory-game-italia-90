@@ -13,6 +13,9 @@ Vanilla JS memory card game. No build tools, no frameworks, no tests.
 - Card structure uses a 3D flip container: `.card > .card-inner > .card-front + .card-back`
 - Game state tracked via CSS classes (`flipped`, `matched`) and a `locked` flag
 - Match/mismatch timeouts use `setTimeout` with `locked` to prevent race conditions
+- Board setup wrapped in `initBoard()` — called on page load and on restart
+- Cards have `tabIndex`, `role="button"`, and keyboard handlers for Enter/Space
+- Confetti is generated dynamically with absolutely-positioned animated divs
 
 ## Running
 

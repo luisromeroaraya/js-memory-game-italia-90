@@ -234,6 +234,7 @@ function showConfetti() {
 // --- Restart ---
 
 restartBtn.addEventListener("click", initBoard)
+document.getElementById("play-again").addEventListener("click", initBoard)
 
 // --- Start ---
 
