@@ -8,21 +8,28 @@ A memory matching game using football player cards from Panini's Italia '90 Worl
 
 ## Gameplay
 
-- 4x4 grid (16 cards) with 8 matching pairs of legendary Italia '90 players
-- Click to flip a card, then click another to find its match
-- Matched cards stay revealed; mismatched cards flip back after 1 second
+- 4×4 grid (16 cards) with 8 matching pairs of legendary Italia '90 players
+- Click to flip a card with a 3D animation, then click another to find its match
+- Matched cards stay revealed with a dimmed effect; mismatched cards flip back after 1 second
 - Match all 8 pairs to win
 
 ## Players
 
 Maradona, Baggio, Romário, Matthäus, Valderrama, Van Basten, Francescoli, Scifo
 
-## Improvements
+## Features
 
-- Fixed undeclared variables (all `let`/`const`, `"use strict"`)
-- Fixed card ID bug — sequential IDs instead of relying on player index
-- Added click lock to prevent race conditions during mismatch timeout
-- Added `matched` class to prevent re-clicking already-matched cards
-- Used `dataset.pair` to preserve pairing information
+### Code quality
+- `"use strict"`, all variables properly scoped with `const`/`let`
+- Card IDs are sequential (not tied to player index), pair matching via `dataset.pair`
+- Click lock prevents race conditions during mismatch animation and match delay
+- `matched` class prevents re-clicking already-matched cards
+
+### UI / UX
+- 3D CSS card flip using `preserve-3d` and `backface-visibility`
+- Hover glow and click-press feedback on interactive cards
+- Match pulse animation, dimmed matched cards
+- Centered win overlay with fixed positioning
+- Responsive layout — cards scale down on small screens via `vw` units
 
 Images from [Coleka](https://www.coleka.com/fr/stikers-autocollants/stickers-panini/albums-de-foot-panini/italia-90-world-cup_r14144)
