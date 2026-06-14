@@ -41,3 +41,5 @@ Maradona, Baggio, Romário, Matthäus, Valderrama, Van Basten, Francescoli, Scif
 - Fully responsive — cards, text, and spacing scale continuously via `clamp()` with no breakpoint jumps
 
 Images from [Coleka](https://www.coleka.com/fr/stikers-autocollants/stickers-panini/albums-de-foot-panini/italia-90-world-cup_r14144)
+
+Improved using [OpenCode](https://opencode.ai)
