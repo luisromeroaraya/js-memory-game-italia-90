@@ -3,6 +3,7 @@
     padding: 0;
 }
 
+/* Centre everything on a light blue background. */
 body {
     background-color: lightblue;
     display: flex;
@@ -15,6 +16,7 @@ header {
     margin: 10px;
 }
 
+/* Column layout helper. */
 .column {
     display: flex;
     flex-direction: column;
@@ -22,6 +24,7 @@ header {
     align-items: center;
 }
 
+/* Row layout helper — each row holds 4 cards. */
 .row {
     display: flex;
     flex-direction: row;
@@ -29,6 +32,7 @@ header {
     align-items: center;
 }
 
+/* Face-down card (black placeholder) and face-up player image. */
 .card {
     font-size: 5em;
     text-align: center;
@@ -40,11 +44,13 @@ header {
     transition: all 0.5s ease-in-out;
 }
 
+/* Matched pair is visually dimmed and no longer clickable. */
 .card.matched {
     opacity: 0.6;
     cursor: default;
 }
 
+/* Win overlay shown in the centre of the page. */
 .modal {
     position: absolute;
     background-color: snow;
@@ -55,6 +61,7 @@ header {
     transition: all 0.5s ease-in-out;
 }
 
+/* Toggled via JS to show/hide the win modal. */
 .hidden {
     display: none;
 }
