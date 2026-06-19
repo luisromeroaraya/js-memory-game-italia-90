@@ -47,6 +47,7 @@ body {
     box-shadow: var(--card-shadow);
     position: sticky;
     top: 24px;
+    z-index: 1;
 }
 
 .sidebar h1 {
